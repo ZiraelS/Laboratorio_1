@@ -42,19 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\Acciones\Mostrar.cs" />
+    <Compile Include="Dominio\Acciones\HacerJugador1.cs" />
+    <Compile Include="Dominio\Acciones\HacerJugador2.cs" />
+    <Compile Include="Dominio\Acciones\HacerMatriz.cs" />
+    <Compile Include="Dominio\Especificaciones\RealiceJugador1.cs" />
+    <Compile Include="Dominio\Especificaciones\RealiceJugador2.cs" />
+    <Compile Include="Dominio\Especificaciones\RealiceMatriz.cs" />
+    <Compile Include="Dominio\Interfaces\IService1.cs" />
+    <Compile Include="Dominio\Validaciones\Comprobar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Dominio\Servicios\Service1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dominio\Especificaciones\" />
-    <Folder Include="Dominio\Interfaces\" />
     <Folder Include="Dominio\Repositorio\" />
-    <Folder Include="Dominio\Servicios\" />
-    <Folder Include="Dominio\Validaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

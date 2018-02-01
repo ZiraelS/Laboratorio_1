@@ -16,7 +16,7 @@ namespace Laboratorio1
 
             do
             { //Pregunta de que tamaño quiere la matriz
-                Console.Write("Defina tanaño de la matriz de Gato entre 3 y 10" + System.Environment.NewLine);
+                Console.Write("Defina tamaño de la matriz de Gato entre 3 y 10" + System.Environment.NewLine);
                 linea = Console.ReadLine();
                 size = int.Parse(linea);
             } while (size < 2 && size > 11);
@@ -59,7 +59,7 @@ namespace Laboratorio1
 
                 Console.Write(System.Environment.NewLine);
                 Console.Write(System.Environment.NewLine);
-                
+
                 //Pregunto en que fila y columna quiere ingresar el dato
                 Console.Write("Seleccione la fila de ingreso");
                 linea = Console.ReadLine();
