@@ -42,23 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dominio\Acciones\HacerJugador1.cs" />
-    <Compile Include="Dominio\Acciones\HacerJugador2.cs" />
-    <Compile Include="Dominio\Acciones\HacerMatriz.cs" />
-    <Compile Include="Dominio\Especificaciones\RealiceJugador1.cs" />
-    <Compile Include="Dominio\Especificaciones\RealiceJugador2.cs" />
-    <Compile Include="Dominio\Especificaciones\RealiceMatriz.cs" />
-    <Compile Include="Dominio\Interfaces\IService1.cs" />
-    <Compile Include="Dominio\Validaciones\Comprobar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dominio\Servicios\Service1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dominio\Repositorio\" />
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCFGato\WCFGato.csproj">
+      <Project>{ead509bb-7352-480c-9300-51b4c4bbc0f7}</Project>
+      <Name>WCFGato</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

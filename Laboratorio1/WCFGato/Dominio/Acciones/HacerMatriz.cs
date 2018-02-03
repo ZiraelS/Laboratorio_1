@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace Laboratorio1.Dominio.Acciones
+namespace Dominio.Acciones
 {
     public class HacerMatriz
     {
         public char[,] CrearMatriz(int size)
         {
             char[,] laMatriz = new char[0, 0];
-            var laValidacion = new Dominio.Validaciones.Comprobar();
+            var laValidacion = new Dominio.Validaciones.Dimenciones();
             bool valida = laValidacion.Dimencion(size);
             if (valida)
             {

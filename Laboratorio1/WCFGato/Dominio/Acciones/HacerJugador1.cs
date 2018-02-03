@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace Laboratorio1.Dominio.Acciones
+namespace Dominio.Acciones
 {
     public class HacerJugador1
     {
         public char CrearJugador1(char ficha)
         {
             char elJugador1 = ' ';
-            var laValidacion = new Dominio.Validaciones.Comprobar();
+            var laValidacion = new Dominio.Validaciones.DefinirJugadores();
             bool valida = laValidacion.CaracterJugador(ficha);
             if (valida)
             {

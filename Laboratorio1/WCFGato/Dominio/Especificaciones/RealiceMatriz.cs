@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Laboratorio1.Dominio.Especificaciones
+namespace Dominio.Especificaciones
 {
     public class RealiceMatriz
     {
