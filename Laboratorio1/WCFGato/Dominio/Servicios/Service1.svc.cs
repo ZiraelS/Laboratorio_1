@@ -36,19 +36,27 @@ namespace WCFGato
             return elJugador2;
         }
 
-        public string MostrarMatriz(char[,] Matriz)
+        public string MostrarMatriz(char[,] Matriz, int size)
         {
             string elResultado = " ";
             var laEspecificacion = new Dominio.Especificaciones.RealiceMostrarMatriz();
-            elResultado = laEspecificacion.RealizarMostrarMatriz(Matriz);
+            elResultado = laEspecificacion.RealizarMostrarMatriz(Matriz, size);
             return elResultado;
         }
 
-        public bool IngresarDato(char[,] Matriz, char ficha, int fila, int columna)
+        public bool IngresarDato(char[,] Matriz, int size, char ficha, int fila, int columna)
         {
             bool elResultado = false;
             var laEspecificacion = new Dominio.Especificaciones.RealiceIngresar();
-            elResultado = laEspecificacion.RealizarIngresar(Matriz, ficha, fila, columna);
+            elResultado = laEspecificacion.RealizarIngresar(Matriz, size, ficha, fila, columna);
+            return elResultado;
+        }
+
+        public bool HayGanador(char[,] Matriz, int size, char ficha)
+        {
+            bool elResultado = false;
+            var laEspecificacion = new Dominio.Especificaciones.RealiceGanador();
+            elResultado = laEspecificacion.RealizarGanador(Matriz, size, ficha);
             return elResultado;
         }
 

@@ -4,29 +4,40 @@ namespace Dominio.Acciones
 {
     public class HacerIngresar
     {
-        public bool CrearIngresar(char[,] Matriz, char ficha, int fila, int columna)
+        public bool CrearIngresar(char[,] Matriz, int size, char ficha, int fila, int columna)
         {
             bool elResultado = false;
             bool limites = false;
-            var losLimites = new Dominio.Validaciones.DentroDeLimites();
-            limites = losLimites.EstaDentro(fila, columna, Matriz.Length+1);
+            bool vacio = false;
+            var validacion = new Dominio.Validaciones.ValidarIngreso();
+            limites = validacion.EstaDentro(fila, columna, size);
             if (limites)
             {
-                for (int i = 0; i < Matriz.Length; i++)
+                for (int i = 0; i < size; i++)
                 {
                     if (fila == i + 1)
                     {
-                        for (int j = 0; j < Matriz.Length; j++)
+                        for (int j = 0; j < size; j++)
                         {
                             if (columna == j + 1)
                             {
-                                Matriz[i, j] = ficha;
-                                elResultado = true;
+                                vacio = validacion.EstaVacio(Matriz, i, j);
+                                if (vacio)
+                                {
+                                    Matriz[i, j] = ficha;
+                                    return elResultado = true;
+                                }
+                                else
+                                {
+                                    Console.Write("Posicion invalida. \n");
+                                    return elResultado;
+                                }
                             }
                         }
                     }
                 }
             }
+            Console.Write("Posicion Invalida. \n");
             return elResultado;
         }
     }

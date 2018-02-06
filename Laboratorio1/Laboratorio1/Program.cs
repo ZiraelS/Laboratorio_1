@@ -10,107 +10,145 @@ namespace Laboratorio1
     {
         static void Main(string[] args)
         {
-            //Final>
-            int size = 3;
+            int size = 0;
+            string linea;
             char[,] matriz;
-            var metodo = new WCFGato.Service1();
-            matriz = metodo.CrearMatriz(size);
+            var wcf = new WCFGato.Service1();
 
-            //Final<
+            bool correcto = false;
+            do
+            { //Crear Matriz
+                Console.Write("Defina tamaño de la matriz de Gato entre '3' y '10': ");
+                linea = Console.ReadLine();
+                size = int.Parse(linea);
+                matriz = wcf.CrearMatriz(size);
+                if (size > 2)
+                {
+                    if (size < 11)
+                    {
+                        correcto = true;
+                    }
+                }
+            } while (correcto != true);
 
 
+            char j1 = ' ';
+            char j2 = ' ';
+            char caracter;
+            do
+            { //Definir Jugadores
+                Console.Write("Defina el simbolo del jugador 1, entre 'x' o 'o': ");
+                linea = Console.ReadLine();
+                caracter = Char.Parse(linea);
+                j1 = wcf.DefinirJugador1(caracter);
+                j2 = wcf.DefinirJugador2(caracter);
+            } while (j1.Equals(' '));
 
 
+            string vMatriz;
+            int turno = 1;
+            int fila;
+            int columna;
+            bool ingreso;
+            bool ganoj1 = false;
+            bool ganoj2 = false;
+            bool salida = false;
+            do
+            { //Juego (Ingreso y Gane)
+                if (turno % 2 != 0)
+                {
+                    Console.Write("Turno " + turno + ", Jugador 1.");
+                }
+                else
+                {
+                    Console.Write("Turno " + turno + ", Jugador 2.");
+                }
+
+                vMatriz = wcf.MostrarMatriz(matriz, size);
+                Console.Write(vMatriz);
 
 
+                do
+                { //Ingreso
+                    Console.Write("Seleccione la fila de ingreso: ");
+                    linea = Console.ReadLine();
+                    fila = int.Parse(linea);
+                    Console.Write("Seleccione la columna de ingreso: ");
+                    linea = Console.ReadLine();
+                    columna = int.Parse(linea);
+                    if (turno % 2 != 0)
+                    {
+                        ingreso = wcf.IngresarDato(matriz, size, j1, fila, columna);
+                    }
+                    else
+                    {
+                        ingreso = wcf.IngresarDato(matriz, size, j2, fila, columna);
+                    }
+                } while (ingreso != true);
 
-            ////Defino variables
-            //int size = 0;
-            //string linea;
 
-            //do
-            //{ //Pregunta de que tamaño quiere la matriz
-            //    Console.Write("Defina tamaño de la matriz de Gato entre 3 y 10" + System.Environment.NewLine);
-            //    linea = Console.ReadLine();
-            //    size = int.Parse(linea);
-            //} while (size < 2 && size > 11);
+                if (turno % 2 != 0)
+                {
+                    ganoj1 = wcf.HayGanador(matriz, size, j1);
+                }
+                else
+                {
+                    ganoj2 = wcf.HayGanador(matriz, size, j2);
+                }
 
-            //char[,] matriz = new char[size, size];//Defino la matriz
 
-            //for (int i = 0; i < size; i++) //Llena la matriz con espacios en blanco
-            //{
-            //    for (int j = 0; j < size; j++)
-            //    {
-            //        matriz[i, j] = '_';
-            //    }
-            //}
+                Console.Write("\n\n");
+                turno++;
+                if (ganoj1 == true)
+                {
+                    salida = true;
+                }
+                else if (ganoj2 == true)
+                {
+                    salida = true;
+                }
+                else if (turno == matriz.Length)
+                {
+                    salida = true;
+                }
+            } while (salida == false);
 
-            ////Definir el simbolo de los jugadores
-            ////*
-            ////Definir el simbolo de los jugadores
 
-            ////Defino variables
-            //int turno = 1;
-            //int x;
-            //int y;
-            //bool ganox = false;
-            //bool ganoy = false;
-            //bool user = true;
-
-            //do
-            //{ //Ciclo de juego hasta que se encuentre un ganador
-
-            //    Console.Write("Turno " + turno + System.Environment.NewLine + System.Environment.NewLine);
-
-            //    for (int i = 0; i < size; i++) //Muestra
-            //    {
-            //        for (int j = 0; j < size; j++)
-            //        {
-            //            Console.Write(matriz[i, j] + " | ");
-            //        }
-            //        Console.Write(System.Environment.NewLine);
-            //    }
-
-            //    Console.Write(System.Environment.NewLine);
-            //    Console.Write(System.Environment.NewLine);
-
-            //    //Pregunto en que fila y columna quiere ingresar el dato
-            //    Console.Write("Seleccione la fila de ingreso ");
-            //    linea = Console.ReadLine();
-            //    x = int.Parse(linea);
-            //    Console.Write("Seleccione la columna de ingreso ");
-            //    linea = Console.ReadLine();
-            //    y = int.Parse(linea);
-
-            //    for (int i = 0; i < size; i++) //Inserta dato
-            //    {
-            //        if (x == i + 1)
-            //        {
-            //            for (int j = 0; j < size; j++)
-            //            {
-            //                if (y == j + 1)
-            //                {
-            //                    //Validar que usuario esta jugando
-            //                    matriz[i, j] = 'X';
-            //                    //Validar que usuario esta jugando
-            //                }
-            //            }
-            //            Console.Write(System.Environment.NewLine);
-            //        }
-            //    }
-
-            //    //Validar si se gano
-            //    //*
-            //    //Validar si se gano
-
-            //    Console.Write(System.Environment.NewLine);
-            //    Console.Write(System.Environment.NewLine);
-            //    turno++;
-            //} while (ganox != true || ganoy != true);
-
-            //Console.Write("Felicidades Jugador");
+            if (ganoj1 == true)
+            {
+                Console.Write("Felicidades Jugador 1, has ganado");
+            }
+            else if (ganoj2 == true)
+            {
+                Console.Write("Felicidades Jugador 2, has ganado");
+            }
+            else
+            {
+                Console.Write("Empate");
+            }
 
             Console.ReadLine();// System Pause
         }
     }
 }
+
+//test
+//int size = 3;
+//string linea;
+//char[,] matriz;
+//var wcf = new WCFGato.Service1();
+//matriz = wcf.CrearMatriz(size);
+//char j1 = wcf.DefinirJugador1('x');
+//char j2 = wcf.DefinirJugador2('x');
+//test
+
+//Dudas
+//do
+//{ //Crear Matriz
+//    Console.Write("Defina tamaño de la matriz de Gato entre '3' y '10': ");
+//    linea = Console.ReadLine();
+//    size = int.Parse(linea);
+//    matriz = wcf.CrearMatriz(size);
+//} while (size > 2 && size < 11);
+
+//while (ganoj1 == false || ganoj2 == false || turno != matriz.Length);

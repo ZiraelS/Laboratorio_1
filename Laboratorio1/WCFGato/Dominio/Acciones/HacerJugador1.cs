@@ -21,6 +21,7 @@ namespace Dominio.Acciones
                 }
                 return elJugador1;
             }
+            Console.Write("Simbolo invalido, escoja entre 'x' o 'o'.\n");
             return elJugador1;
         }
     }

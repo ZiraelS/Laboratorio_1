@@ -65,11 +65,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Acciones\HacerGanador.cs" />
     <Compile Include="Dominio\Acciones\HacerIngresar.cs" />
     <Compile Include="Dominio\Acciones\HacerJugador1.cs" />
     <Compile Include="Dominio\Acciones\HacerJugador2.cs" />
     <Compile Include="Dominio\Acciones\HacerMatriz.cs" />
     <Compile Include="Dominio\Acciones\HacerMostrarMatriz.cs" />
+    <Compile Include="Dominio\Especificaciones\RealiceGanador.cs" />
     <Compile Include="Dominio\Especificaciones\RealiceIngresar.cs" />
     <Compile Include="Dominio\Especificaciones\RealiceJugador1.cs" />
     <Compile Include="Dominio\Especificaciones\RealiceJugador2.cs" />
@@ -81,7 +83,8 @@
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Interfaces\IService1.cs" />
-    <Compile Include="Dominio\Validaciones\DentroDeLimites.cs" />
+    <Compile Include="Dominio\Validaciones\ValidarGanador.cs" />
+    <Compile Include="Dominio\Validaciones\ValidarIngreso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

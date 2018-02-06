@@ -22,10 +22,13 @@ namespace WCFGato
         char DefinirJugador2(char ficha);
 
         [OperationContract]
-        string MostrarMatriz(char[,] Matriz);
+        string MostrarMatriz(char[,] Matriz, int size);
 
         [OperationContract]
-        bool IngresarDato(char[,] Matriz, char ficha, int fila, int columna);
+        bool IngresarDato(char[,] Matriz, int size, char ficha, int fila, int columna);
+
+        [OperationContract]
+        bool HayGanador(char[,] Matriz, int size, char ficha);
 
         //[OperationContract]
         //bool HayGanador(int[] i, int j);

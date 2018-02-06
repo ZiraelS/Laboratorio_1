@@ -21,6 +21,7 @@ namespace Dominio.Acciones
                 }
                 return laMatriz;
             }
+            Console.Write("Tamaño invalido.\n");
             return laMatriz;
         }
     }
