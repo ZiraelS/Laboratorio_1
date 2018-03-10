@@ -113,6 +113,8 @@ namespace Laboratorio1
                 }
             } while (salida == false);
 
+            vMatriz = wcf.MostrarMatriz(matriz, size);
+            Console.Write(vMatriz);
 
             if (ganoj1 == true)
             {
